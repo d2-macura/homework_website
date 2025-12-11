@@ -1,0 +1,127 @@
+# =============================================================================
+# GitHub Pages Deployment Workflow
+# =============================================================================
+#
+# WHAT DOES THIS FILE DO?
+# -----------------------
+# This file tells GitHub to automatically publish your website whenever you
+# push new code! It's like having a robot assistant that updates your website
+# for you every time you make changes.
+#
+# HOW DOES IT WORK?
+# -----------------
+# 1. You push code to the "main" branch
+# 2. GitHub sees this file and says "Oh, I need to do something!"
+# 3. GitHub runs these instructions to publish your website
+# 4. Your website is live at: https://YOUR-USERNAME.github.io/REPO-NAME/
+#
+# =============================================================================
+
+name: Deploy to GitHub Pages
+
+# WHEN should this run?
+# "on" means "when this happens, do the job below"
+on:
+  # Run when code is pushed to the main branch
+  push:
+    branches:
+      - main
+
+  # Also allow manual triggering from GitHub website
+  # (Go to Actions tab -> Select this workflow -> Click "Run workflow")
+  workflow_dispatch:
+
+# PERMISSIONS
+# GitHub Pages needs permission to deploy
+permissions:
+  contents: read      # Can read your code
+  pages: write        # Can write to GitHub Pages
+  id-token: write     # Needed for secure deployment
+
+# CONCURRENCY
+# If multiple deployments happen at once, only run the latest one
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# THE ACTUAL JOBS (tasks to do)
+jobs:
+  # ==========================================================================
+  # JOB 1: BUILD
+  # ==========================================================================
+  # This job prepares your website files for deployment
+  build:
+    runs-on: ubuntu-latest  # Use a Linux computer in the cloud
+
+    steps:
+      # Step 1: Get your code
+      # "checkout" means "download the code from this repository"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up GitHub Pages
+      # This prepares the Pages system to receive your website
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Step 3: Package your website
+      # This takes all your HTML, CSS, JS, and image files
+      # and bundles them into a neat package called an "artifact"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload the entire repository (all files in the root folder)
+          # The "." means "current directory" (everything!)
+          path: '.'
+
+  # ==========================================================================
+  # JOB 2: DEPLOY
+  # ==========================================================================
+  # This job actually publishes your website to the internet!
+  deploy:
+    # This job needs the "build" job to finish first
+    needs: build
+
+    # Use the GitHub Pages deployment environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # The magic step that makes your website go live!
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+# =============================================================================
+# SETUP INSTRUCTIONS FOR NEW DEVELOPERS
+# =============================================================================
+#
+# To enable GitHub Pages for this repository:
+#
+# 1. Go to your repository on GitHub.com
+#
+# 2. Click "Settings" (the gear icon)
+#
+# 3. In the left sidebar, click "Pages"
+#
+# 4. Under "Build and deployment":
+#    - Source: Select "GitHub Actions"
+#    (NOT "Deploy from a branch" - we use Actions!)
+#
+# 5. Push your code to the "main" branch
+#
+# 6. Go to the "Actions" tab to watch the deployment
+#
+# 7. Once complete, your site will be at:
+#    https://YOUR-USERNAME.github.io/REPOSITORY-NAME/
+#
+# TROUBLESHOOTING:
+# ----------------
+# - If deployment fails, check the Actions tab for error messages
+# - Make sure your repository is public (or you have GitHub Pro for private)
+# - Ensure the workflow file is in .github/workflows/deploy.yml
+#
+# =============================================================================

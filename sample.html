@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macura Dorothy - Sample Layout</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid px-4">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="report.html">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="sample.html">Sample</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                <i class="bi bi-list text-white fs-2 menu-icon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Page Content -->
+    <div class="container py-5">
+
+        <!-- Page Header -->
+        <div class="row mb-5">
+            <div class="col-12 text-center text-lg-start">
+                <h1 class="display-4 fw-bold">Simple Layout</h1>
+                <p class="lead text-light opacity-75">A demonstration of a standard responsive page structure.</p>
+                <hr class="border-secondary opacity-50 my-4">
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <!-- Main Content Column (Left/Top) -->
+            <div class="col-lg-8">
+                <article class="mb-5">
+                    <h2 class="h3 fw-bold mb-3 text-white">Main Article Title</h2>
+                    <div class="bg-dark p-4 bg-opacity-50 border border-secondary border-opacity-25 mb-4">
+                        <div
+                            class="ratio ratio-16x9 mb-3 bg-secondary bg-opacity-25 d-flex justify-content-center align-items-center">
+                            <span class="text-secondary">Feature Image Placeholder</span>
+                        </div>
+                    </div>
+                    <p class="text-light opacity-75 mb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="text-light opacity-75">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                        mollit anim id est laborum.
+                    </p>
+                </article>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card bg-black border border-secondary border-opacity-25 h-100">
+                            <div class="card-body">
+                                <h3 class="h5 card-title text-white">Sub-Section A</h3>
+                                <p class="card-text text-light opacity-75">Small content block explanation goes here.
+                                    Concise and clear.</p>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-0">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-black border border-secondary border-opacity-25 h-100">
+                            <div class="card-body">
+                                <h3 class="h5 card-title text-white">Sub-Section B</h3>
+                                <p class="card-text text-light opacity-75">Another block of content to balance the
+                                    layout. Easy to read.</p>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-0">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Column (Right/Bottom) -->
+            <div class="col-lg-4">
+                <!-- Sidebar Widget 1 -->
+                <div class="card bg-white text-black rounded-0 mb-4 border-0">
+                    <div class="card-body p-4">
+                        <h4 class="h5 card-title fw-bold mb-3">About The Layout</h4>
+                        <p class="card-text small mb-4">
+                            This layout features a classic 8:4 column split on large screens, utilizing Bootstrap's grid
+                            system to stack vertically on mobile devices.
+                        </p>
+                        <button class="btn btn-dark w-100 rounded-0">Action Button</button>
+                    </div>
+                </div>
+
+                <!-- Sidebar Widget 2 -->
+                <div class="p-4 border border-secondary border-opacity-50">
+                    <h4 class="h5 text-white fw-bold mb-3">Quick Links</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#"
+                                class="text-light text-decoration-none opacity-75 hover-opacity-100">&rsaquo; Link item
+                                one</a></li>
+                        <li class="mb-2"><a href="#"
+                                class="text-light text-decoration-none opacity-75 hover-opacity-100">&rsaquo; Link item
+                                two</a></li>
+                        <li class="mb-2"><a href="#"
+                                class="text-light text-decoration-none opacity-75 hover-opacity-100">&rsaquo; Link item
+                                three</a></li>
+                        <li><a href="#" class="text-light text-decoration-none opacity-75 hover-opacity-100">&rsaquo;
+                                Link item four</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+# =============================================================================
+# .gitignore - Files that Git should ignore (not track)
+# =============================================================================
+#
+# WHAT IS THIS FILE?
+# ------------------
+# When you use Git, it tries to track ALL files in your project.
+# But some files shouldn't be shared or tracked, like:
+# - System files your computer creates automatically
+# - Files with secret passwords
+# - Temporary files that aren't needed
+#
+# This file tells Git: "Hey, ignore these files! Don't track them!"
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# OPERATING SYSTEM FILES
+# -----------------------------------------------------------------------------
+# These are hidden files that Mac, Windows, and Linux create automatically.
+# They're not part of your website - just system junk!
+
+# Mac files
+.DS_Store           # Mac creates this in every folder (stores folder settings)
+.AppleDouble        # Old Mac file system thing
+.LSOverride         # More Mac stuff
+._*                 # Mac resource forks (hidden copies of files)
+.Spotlight-V100     # Mac search index
+.Trashes            # Mac trash folder info
+
+# Windows files
+Thumbs.db           # Windows thumbnail cache
+ehthumbs.db         # Windows media thumbnail cache
+Desktop.ini         # Windows folder settings
+*.lnk               # Windows shortcut files
+
+# Linux files
+*~                  # Backup files (file~ means "backup of file")
+
+# -----------------------------------------------------------------------------
+# EDITOR AND IDE FILES
+# -----------------------------------------------------------------------------
+# Code editors create temporary files and settings folders.
+# These are personal to each developer, so we don't share them.
+
+# Visual Studio Code
+.vscode/            # VS Code settings folder
+*.code-workspace    # VS Code workspace files
+
+# JetBrains (WebStorm, IntelliJ, etc.)
+.idea/              # JetBrains settings folder
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp               # Vim swap files (temporary)
+*.swo
+*.swn
+
+# -----------------------------------------------------------------------------
+# DEPENDENCY FOLDERS
+# -----------------------------------------------------------------------------
+# If you ever add JavaScript libraries, they go in node_modules.
+# This folder can have THOUSANDS of files and is huge!
+# It can be recreated from package.json, so we don't commit it.
+
+node_modules/       # JavaScript dependencies (if using npm)
+bower_components/   # Old-style dependencies (if using Bower)
+
+# -----------------------------------------------------------------------------
+# BUILD AND CACHE FILES
+# -----------------------------------------------------------------------------
+# These are created when building or processing your website.
+# They can always be recreated, so no need to store them.
+
+dist/               # Distribution/build folder
+build/              # Another common build folder name
+.cache/             # Cache files
+*.log               # Log files
+npm-debug.log*      # npm error logs
+
+# -----------------------------------------------------------------------------
+# ENVIRONMENT AND SECRET FILES
+# -----------------------------------------------------------------------------
+# NEVER commit files with passwords, API keys, or secrets!
+# These files could have sensitive information.
+
+.env                # Environment variables (might have secrets!)
+.env.local
+.env.*.local
+*.pem               # SSL certificates (private keys!)
+
+# -----------------------------------------------------------------------------
+# PROJECT-SPECIFIC IGNORES
+# -----------------------------------------------------------------------------
+# Add any project-specific files to ignore below this line
+
+# Documentation folder (if using auto-generated docs)
+.docs/

@@ -1,0 +1,373 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #000;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 1.5rem;
+}
+
+.nav-link.active {
+    font-weight: 700;
+    color: white !important;
+}
+
+/* Home Page Overlay */
+.overlay-gradient {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* =============================================================================
+   RESPONSIVE HERO SECTION - Detailed Explanation
+   =============================================================================
+
+   WHAT IS A HERO SECTION?
+   Think of a hero section like the big picture on the front of a storybook.
+   It's the first thing people see when they open your website - a big,
+   beautiful image that takes up the whole screen!
+
+   ============================================================================= */
+
+.hero-section {
+    /*
+     * min-height: 100vh
+     * ----------------
+     * "vh" means "viewport height" - that's how tall your screen is!
+     * 100vh = 100% of your screen height
+     *
+     * Imagine your screen is a window. This says "make this box AT LEAST
+     * as tall as the whole window!" So if you have a tiny phone or a huge
+     * TV, it will always fill the whole screen from top to bottom.
+     *
+     * "min-height" means "minimum height" - it can be taller, but never shorter!
+     */
+    min-height: 100vh;
+
+    /*
+     * height: 100vh
+     * -------------
+     * This also says "be exactly as tall as the screen"
+     * We use BOTH min-height and height to make super sure it works
+     * on ALL browsers (some old browsers are picky!)
+     */
+    height: 100vh;
+
+    /*
+     * overflow: hidden
+     * ----------------
+     * Imagine you have a picture frame, but the picture is bigger than the frame.
+     * "overflow: hidden" is like using scissors to cut off the parts that
+     * stick out! Nothing can peek outside our hero section box.
+     *
+     * This keeps our image nice and tidy inside its container, no matter
+     * how big the original image file is.
+     */
+    overflow: hidden;
+}
+
+.hero-image {
+    /*
+     * width: 100%
+     * -----------
+     * This tells the image "stretch yourself to be as wide as your parent!"
+     * The parent is .hero-section, which is as wide as the screen.
+     * So the image will stretch from the left edge to the right edge.
+     *
+     * Think of it like stretching a rubber band to fit across a doorway!
+     */
+    width: 100%;
+
+    /*
+     * height: 100%
+     * ------------
+     * Same idea, but for height! "Be as tall as your parent!"
+     * Combined with width: 100%, the image tries to fill the entire
+     * hero section box completely.
+     */
+    height: 100%;
+
+    /*
+     * object-fit: cover
+     * -----------------
+     * THIS IS THE MAGIC PROPERTY! Here's what it does:
+     *
+     * Imagine you have a rectangular photo of a person, and you want to
+     * put it in a square frame. You have three choices:
+     *
+     * 1. "contain" - Shrink the whole photo to fit inside.
+     *    But then you'd have empty space on the sides! (Not good)
+     *
+     * 2. "fill" - Stretch and squish the photo to fit exactly.
+     *    But then the person looks all stretched and weird! (Not good)
+     *
+     * 3. "cover" - Make the photo big enough to COVER the whole frame,
+     *    and cut off the extra parts. The photo keeps its shape, and the
+     *    frame is completely filled! (Perfect!)
+     *
+     * We use "cover" because:
+     * - The image keeps its normal proportions (no stretchy people!)
+     * - The entire screen is covered (no ugly empty spaces!)
+     * - It works on ANY screen size - phones, tablets, giant monitors!
+     */
+    object-fit: cover;
+
+    /*
+     * object-position: center 30%
+     * ---------------------------
+     * When we use object-fit: cover, some parts of the image get cut off.
+     * object-position tells the browser WHICH part of the image to show!
+     *
+     * Think of it like looking through a window at a big painting:
+     * - "center" means "keep the middle of the painting in the middle of the window"
+     * - "30%" means "show the part that's 30% down from the top"
+     *
+     * Why 30%? Because our model's FACE is about 30% from the top of the photo!
+     * If we used "top" (0%), we'd only see her hair.
+     * If we used "center" (50%), we might cut off her forehead.
+     * 30% is the sweet spot where we see her whole beautiful face!
+     *
+     * The format is: object-position: [horizontal] [vertical]
+     * - "center" = horizontally centered (left-right)
+     * - "30%" = 30% from the top (up-down)
+     */
+    object-position: center 30%;
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN - Making it work on ALL screen sizes!
+   =============================================================================
+
+   WHAT ARE MEDIA QUERIES?
+   Media queries are like asking questions: "Hey browser, how big is the screen?"
+   Based on the answer, we can apply different styles!
+
+   @media (max-width: 768px) means:
+   "IF the screen is 768 pixels wide or SMALLER, use these special styles"
+
+   WHY DO WE NEED THIS?
+   A website that looks great on a big computer monitor might look terrible
+   on a tiny phone screen! Media queries let us adjust things for each size.
+
+   BREAKPOINTS (the numbers we check):
+   - 1200px = Large laptops and desktops
+   - 992px  = Small laptops and tablets in landscape mode
+   - 768px  = Tablets in portrait mode
+   - 576px  = Mobile phones
+
+   ============================================================================= */
+
+/*
+ * LARGE SCREENS (up to 1200px wide)
+ * ---------------------------------
+ * This is for smaller laptops. The hero section stays full screen height,
+ * but we add a minimum height of 600px just in case.
+ *
+ * Why minimum height? Some laptops have weird aspect ratios, and 100vh
+ * might be very short. 600px ensures there's always enough room for our content!
+ */
+@media (max-width: 1200px) {
+    .hero-section {
+        height: 100vh;
+        min-height: 600px;  /* Never shorter than 600 pixels! */
+    }
+}
+
+/*
+ * MEDIUM SCREENS - TABLETS (up to 992px wide)
+ * -------------------------------------------
+ * Tablets have more square-shaped screens compared to wide computer monitors.
+ * We adjust the image position to show a bit more of the top of the photo.
+ */
+@media (max-width: 992px) {
+    .hero-section {
+        height: 100vh;
+        min-height: 500px;  /* A bit smaller minimum for tablets */
+    }
+
+    .hero-image {
+        /*
+         * object-position: center 25%
+         * ---------------------------
+         * On tablet screens (which are more square), we can see more of
+         * the image vertically. So we move the focus point up a tiny bit
+         * (from 30% to 25%) to show more of the model's hair and forehead.
+         */
+        object-position: center 25%;
+    }
+}
+
+/*
+ * SMALL SCREENS - TABLETS IN PORTRAIT (up to 768px wide)
+ * ------------------------------------------------------
+ * Now we need to start making text smaller so it fits on the screen!
+ */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh;
+        min-height: 450px;
+    }
+
+    /*
+     * Reduce padding on the text container
+     * ------------------------------------
+     * "padding" is like the cushion around the text - empty space between
+     * the text and the edge of its box.
+     *
+     * On smaller screens, we use less padding (1rem instead of default)
+     * so the text has more room to breathe!
+     *
+     * "!important" means "I really mean it!" - it overrides other styles.
+     */
+    .overlay-gradient .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /*
+     * Smaller title text
+     * ------------------
+     * The big "Macura Dorothy" title is too big for tablets!
+     * We shrink it from the default size to 3rem (about 48 pixels).
+     *
+     * "rem" stands for "root em" - it's based on the base font size.
+     * 1rem = 16 pixels usually, so 3rem = 48 pixels.
+     */
+    .display-1 {
+        font-size: 3rem !important;
+    }
+
+    /*
+     * Smaller subtitle
+     * ----------------
+     * The "Professional Fashion Model" subtitle also gets smaller.
+     */
+    .h3 {
+        font-size: 1.25rem !important;  /* About 20 pixels */
+    }
+
+    /*
+     * Smaller paragraph text
+     * ----------------------
+     * The description text gets a bit smaller too.
+     */
+    .lead {
+        font-size: 1rem !important;  /* About 16 pixels */
+    }
+}
+
+/*
+ * EXTRA SMALL SCREENS - MOBILE PHONES (up to 576px wide)
+ * ------------------------------------------------------
+ * Phones are tiny! We need to make everything even smaller and more compact.
+ */
+@media (max-width: 576px) {
+    .hero-section {
+        height: 100vh;
+        min-height: 400px;  /* Smallest minimum height for phones */
+    }
+
+    /*
+     * Less padding around the whole overlay
+     * -------------------------------------
+     * On phones, every pixel counts! We reduce the padding around
+     * all the text content so it has more room.
+     */
+    .overlay-gradient {
+        padding: 2rem !important;
+    }
+
+    /*
+     * Even smaller title
+     * ------------------
+     * On tiny phone screens, 2.5rem (40 pixels) is big enough to read
+     * but small enough to fit without awkward line breaks.
+     */
+    .display-1 {
+        font-size: 2.5rem !important;
+    }
+
+    /*
+     * Even smaller subtitle
+     */
+    .h3 {
+        font-size: 1.1rem !important;  /* About 17-18 pixels */
+    }
+
+    /*
+     * Smaller button
+     * --------------
+     * The "View Portfolio" button needs to be smaller on phones.
+     * We reduce both the padding (space inside the button) and font size.
+     */
+    .btn {
+        padding: 0.75rem 2rem !important;  /* Less tall, still wide enough to tap */
+        font-size: 0.9rem !important;       /* Slightly smaller text */
+    }
+}
+
+/* Pattern Generators */
+.pattern-grid-triangles {
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(45deg, #333 25%, transparent 25%),
+        linear-gradient(-45deg, #333 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #333 75%),
+        linear-gradient(-45deg, transparent 75%, #333 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    border: 4px color(255);
+}
+
+.pattern-grid-circles {
+    width: 100%;
+    height: 100px;
+    background-image: radial-gradient(#000 20%, transparent 20%),
+        radial-gradient(#000 20%, transparent 20%);
+    background-color: #fff;
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+}
+
+.pattern-grid-circles-red {
+    width: 100%;
+    height: 100px;
+    background-image: radial-gradient(#ff0000 40%, transparent 40%);
+    background-color: #000;
+    background-size: 30px 30px;
+}
+
+.pattern-grid-stars {
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #ff6b6b;
+    font-size: 20px;
+}
+
+.pattern-grid-stars::before {
+    content: "★★★★ ★★★★";
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+}
